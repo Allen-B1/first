@@ -2,6 +2,8 @@
 <html>
   <head>
     <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase-auth.js"></script>
     <script>
       // Initialize Firebase
       var config = {
@@ -16,6 +18,22 @@
     </script>
   </head>
   <body>
-  
+    <input id="usr">
+    <input id="pwd">
+    <button id="sup">Sign Up</button>
+    <button id="sin">Sign In</button>
+    <script>
+      var usr = document.getElementById("usr");
+      var pwd = document.getElementById("pwd");
+      var sup = document.getElementById("sup");
+      sup.onclick = function() {
+       firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  alert(errorCode + ": " + errorMessage);
+}); 
+      }
+    </script>
   </body>
 </html>
